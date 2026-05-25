@@ -202,4 +202,68 @@ mario_database=> UPDATE 1
 UPDATE characters SET favorite_color='Yellow' WHERE character_id=5;
 mario_database=> UPDATE 1
 
+mario_database=> UPDATE characters SET homeland='Koopa Kingdom' WHERE character_id=5;
+UPDATE 1
+mario_database=> SELECT * FROM characters;
+mario_database=>                                
++--------------+--------+------------------+----------------+
+| character_id |  name  |     homeland     | favorite_color |
++--------------+--------+------------------+----------------+
+|            2 | Luigi  | Mushroom Kingdom | Green          |
+|            3 | Peach  | Mushroom Kingdom | Pink           |
+|            7 | Yoshi  | Dinosaur Land    | Green          |
+|            6 | Daisy  | Sarasaland       | Orange         |
+|            1 | Mario  | Mushroom Kingdom | Red            |
+|            4 | Toad   | Mushroom Kingdom | Blue           |
+|            5 | Bowser | Koopa Kingdom    | Yellow         |
++--------------+--------+------------------+----------------+
+(7 rows)
+
+SELECT * FROM characters ORDER BY character_id;
+mario_database=>                                
++--------------+--------+------------------+----------------+
+| character_id |  name  |     homeland     | favorite_color |
++--------------+--------+------------------+----------------+
+|            1 | Mario  | Mushroom Kingdom | Red            |
+|            2 | Luigi  | Mushroom Kingdom | Green          |
+|            3 | Peach  | Mushroom Kingdom | Pink           |
+|            4 | Toad   | Mushroom Kingdom | Blue           |
+|            5 | Bowser | Koopa Kingdom    | Yellow         |
+|            6 | Daisy  | Sarasaland       | Orange         |
+|            7 | Yoshi  | Dinosaur Land    | Green          |
++--------------+--------+------------------+----------------+
+(7 rows)
+
+ALTER TABLE characters ADD PRIMARY KEY(name);
+ALTER TABLE
+mario_database=> \d characters
+mario_database=>                                              Table "public.characters"
++----------------+-----------------------+-----------+----------+--------------------------------------------------+
+|     Column     |         Type          | Collation | Nullable |                     Default                      |
++----------------+-----------------------+-----------+----------+--------------------------------------------------+
+| character_id   | integer               |           | not null | nextval('characters_character_id_seq'::regclass) |
+| name           | character varying(30) |           | not null |                                                  |
+| homeland       | character varying(60) |           |          |                                                  |
+| favorite_color | character varying(30) |           |          |                                                  |
++----------------+-----------------------+-----------+----------+--------------------------------------------------+
+Indexes:
+    "characters_pkey" PRIMARY KEY, btree (name)
+
+ALTER TABLE characters DROP CONSTRAINT name;
+ERROR:  constraint "name" of relation "characters" does not exist
+mario_database=> ALTER TABLE characters DROP CONSTRAINT characters_pkey;
+ALTER TABLE
+mario_database=> \d characters
+mario_database=>                                              Table "public.characters"
++----------------+-----------------------+-----------+----------+--------------------------------------------------+
+|     Column     |         Type          | Collation | Nullable |                     Default                      |
++----------------+-----------------------+-----------+----------+--------------------------------------------------+
+| character_id   | integer               |           | not null | nextval('characters_character_id_seq'::regclass) |
+| name           | character varying(30) |           | not null |                                                  |
+| homeland       | character varying(60) |           |          |                                                  |
+| favorite_color | character varying(30) |           |          |                                                  |
++----------------+-----------------------+-----------+----------+--------------------------------------------------+
+
+ALTER TABLE characters ADD PRIMARY KEY(character_id); 
+ALTER TABLE
 ```
