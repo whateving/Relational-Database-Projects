@@ -154,4 +154,52 @@ mario_database=>
 +--------------+-----------+------------------+----------------+
 (7 rows)
 
+UPDATE characters SET name='Toad' WHERE favority_color='Red';
+ERROR:  column "favority_color" does not exist
+LINE 1: UPDATE characters SET name='Toad' WHERE favority_color='Red'...
+                                                ^
+HINT:  Perhaps you meant to reference the column "characters.favorite_color".
+mario_database=> UPDATE characters SET name='Toad' WHERE favorite_color='Red';
+mario_database=> UPDATE 2
+UPDATE charactersSELECT * FROM characters;
+mario_database=>                                
++--------------+--------+------------------+----------------+
+| character_id |  name  |     homeland     | favorite_color |
++--------------+--------+------------------+----------------+
+|            2 | Luigi  | Mushroom Kingdom | Green          |
+|            3 | Peach  | Mushroom Kingdom | Pink           |
+|            5 | Bowser | Mushroom Kingdom | Green          |
+|            7 | Yoshi  | Dinosaur Land    | Green          |
+|            6 | Daisy  | Sarasaland       | Orange         |
+|            1 | Toad   | Mushroom Kingdom | Red            |
+|            4 | Toad   | Mushroom Kingdom | Red            |
++--------------+--------+------------------+----------------+
+(7 rows)
+
+UPDATE characters SET name='Mario' where character_id=1;
+UPDATE 1
+mario_database=> SELECT * FROM characters;
+mario_database=>                                
++--------------+--------+------------------+----------------+
+| character_id |  name  |     homeland     | favorite_color |
++--------------+--------+------------------+----------------+
+|            2 | Luigi  | Mushroom Kingdom | Green          |
+|            3 | Peach  | Mushroom Kingdom | Pink           |
+|            5 | Bowser | Mushroom Kingdom | Green          |
+|            7 | Yoshi  | Dinosaur Land    | Green          |
+|            6 | Daisy  | Sarasaland       | Orange         |
+|            4 | Toad   | Mushroom Kingdom | Red            |
+|            1 | Mario  | Mushroom Kingdom | Red            |
++--------------+--------+------------------+----------------+
+(7 rows)
+
+UPDATE characters SET favority_color='Blue' WHERE character_id=4;
+ERROR:  column "favority_color" of relation "characters" does not exist
+LINE 1: UPDATE characters SET favority_color='Blue' WHERE character_...
+                              ^
+mario_database=> UPDATE characters SET favorite_color='Blue' WHERE character_id=4;
+mario_database=> UPDATE 1
+UPDATE characters SET favorite_color='Yellow' WHERE character_id=5;
+mario_database=> UPDATE 1
+
 ```
