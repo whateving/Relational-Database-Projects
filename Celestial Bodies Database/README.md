@@ -29,12 +29,7 @@ The `universe` database consists of five interconnected tables modeling celestia
 
 If you want to view or query the database on your local machine, follow these steps:
 
-**1. Clone the repository:**
-```bash
-git clone [https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git](https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git)
-cd YOUR-REPO-NAME
-
-```
+**1. Clone the repository and navigate to the .sql file folder.**
 
 **2. Ensure PostgreSQL is installed and running.**
 
