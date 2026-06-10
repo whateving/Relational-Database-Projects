@@ -76,5 +76,7 @@ The database relies on a single `users` table to track player history.
 | `games_played` | `INT` | `DEFAULT 0` | Total number of games finished |
 | `best_game` | `INT` | `DEFAULT 0` | The lowest number of guesses used to win |
 
+## Acknowledgements
 
+* Built as a requirement for the [freeCodeCamp Relational Database Certification](https://www.freecodecamp.org/learn/relational-database/).
 
