@@ -61,6 +61,3 @@ psql -U postgres < universe.sql
 
 * Built as a requirement for the [freeCodeCamp Relational Database Certification](https://www.freecodecamp.org/learn/relational-database/).
 
-```
-
-**A quick tip for GitHub:** Don't forget to replace `YOUR-USERNAME` and `YOUR-REPO-NAME` in the clone command with your actual GitHub username and repository name before committing the file!
